@@ -16,7 +16,7 @@ async def get_saldos():
     cursor.close()
     return results
 
-
+#pesquisa por data
 @router.get('/data/{data}', response_model=SaldoDiarioModel)
 async def get_saldodata(data: str):
     cursor = connection.cursor(dictionary=True)
@@ -27,6 +27,7 @@ async def get_saldodata(data: str):
     # connection.close()
     return result
 
+#pesquisa por periodos
 @router.get('/periodo', response_model=SaldoDiarioModel)
 async def get_periodo(data_inicial: str, data_final: str):
     cursor = connection.cursor(dictionary=True)
